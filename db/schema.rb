@@ -11,11 +11,15 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+ActiveRecord::Schema.define(version: 2018_05_22_135355) do
+
 ActiveRecord::Schema.define(version: 2018_05_22_152205) do
+
 
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
 
   create_table "bookings", force: :cascade do |t|
@@ -29,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_05_22_152205) do
     t.index ["tuxedo_id"], name: "index_bookings_on_tuxedo_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
+
 
 
   create_table "tuxedos", force: :cascade do |t|
