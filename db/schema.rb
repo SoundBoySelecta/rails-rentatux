@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_05_22_152205) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "status", default: "available"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "tuxedo_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tuxedo_id"], name: "index_bookings_on_tuxedo_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
 
   create_table "tuxedos", force: :cascade do |t|
     t.string "color"
@@ -48,4 +64,6 @@ ActiveRecord::Schema.define(version: 2018_05_22_152205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "tuxedos"
+  add_foreign_key "bookings", "users"
 end
