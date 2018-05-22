@@ -17,7 +17,7 @@ def index
     @tuxedo = Tuxedo.new(tux_params)
     @tuxedo.user = current_user
     if @tuxedo.save
-      # Redirect It to Proper Route Here
+      redirect_to tuxedos_show_url
       # redirect_to cocktail_path(@cocktail)
     else
       render :new
@@ -26,7 +26,7 @@ def index
   def destroy
       @tuxedo = Tuxedo.find(params[:id])
       @tuxedo.destroy
-      # Redirect It to Proper Route Here
+      redirect_to tuxedos_index_url
       # redirect_to cocktail_path(@dose.cocktail)
   end
 end
