@@ -19,7 +19,7 @@ puts 'starting creation of Tuxedos'
 300.times do
   tuxedo = Tuxedo.new(
     color: Faker::Color.color_name,
-    style: Faker::Hipster.words(1),
+    style: Faker::Hipster.words(1)[0],
     condition: ["mint", "almost new", "slightly used", "used", "heavily used"].sample,
     year: (1975..2018).to_a.sample,
     size: ["big", "medium", "small"].sample,
