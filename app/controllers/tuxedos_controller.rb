@@ -15,7 +15,7 @@ def index
 
   def create
     @tuxedo = Tuxedo.new(tux_params)
-    @tuxedo.user = @current_user
+    @tuxedo.user = current_user
     if @tuxedo.save
       # Redirect It to Proper Route Here
       # redirect_to cocktail_path(@cocktail)
@@ -35,6 +35,6 @@ end
 
   def tux_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
-    params.require(:picture, :condition).permit(:style, :color, :size, :year)
+    params.require(:tuxedo).permit(:picture, :condition, :style, :color, :size, :year)
   end
 end
