@@ -1,0 +1,2 @@
+class Tuxedo < ApplicationRecord
+end
