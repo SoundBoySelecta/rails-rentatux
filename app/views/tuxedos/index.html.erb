@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+    <link rel="stylesheet" href="main.css">
+
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="container">
+        <ul class="pull-left">
+          <li><a href="https://www.airbnb.com/">airbnb</a></li>
+          <li><a href="https://www.airbnb.com/jobs">Careers</a></li>
+        </ul>
+        <ul class="pull-right">
+          <li><a href="https://www.airbnb.com/signup_login?redirect_params[action]=show&redirect_params[controller]=homepages">Sign Up</a></li>
+          <li><a href="https://www.airbnb.com/login?redirect_params[action]=show&redirect_params[controller]=homepages">Log In</a></li>
+          <li><a href="https://www.airbnb.com/rooms/new">Manage Bookings</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Find a Tuxedo.</h1>
+        <p>Rent a tuxedo from anywhere in the world.</p>
+        <%= link_to 'Learn More About Us', '' %>
+      </div>
+    </div>
+
+    <div class="neighborhood-guides">
+        <div class="container">
+            <h2>Rental Guides</h2>
+            <p>We have tuxedos all over the world from major brands. With Rentatux, you'll never again worry about traveling abroad with a rental tuxedo; all you need is a phone and an internet connection.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <%= link_to '' do %>
+                        <%= image_tag 'tb12' %>
+                      <% end %>
+                    </div>
+
+                    <div class="thumbnail">
+                      <%= link_to '' do %>
+                        <%= image_tag 'tux' %>
+                      <% end %>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <%= link_to '' do %>
+                        <%= image_tag 'white' %>
+                      <% end %>
+                     </div>
+
+                    <div class="thumbnail">
+                      <%= link_to '' do %>
+                        <%= image_tag 'gray' %>
+                      <% end %>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <%= link_to '' do %>
+                        <%= image_tag 'blue' %>
+                      <% end %>
+                     </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <%= link_to '' do %>
+                        <%= image_tag 'purple' %>
+                      <% end %>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="learn-more">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+          <h3>Find a Tux</h3>
+          <p>Choose from hundreds of brands across 5 continents. Whether you go to a destination wedding or conference abroad, you'll never have to worry about looking your best.</p>
+          <p><a href="https://www.airbnb.com/help/getting-started/how-to-travel">Find the perfect tux for you</a></p>
+            </div>
+
+          <div class="col-md-4">
+          <h3>Rent your Tux</h3>
+          <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
+          <p><a href="https://www.airbnb.com/help/getting-started/how-to-host">Create booking for your tux</a></p>
+          </div>
+
+          <div class="col-md-4">
+          <h3>Trust and Safety</h3>
+          <p>From Verified ID to our worldwide customer support team, we've got your back.</p>
+          <p><a href="https://www.airbnb.com/trust">Learn about trust at Rentatux</a></p>
+          </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
