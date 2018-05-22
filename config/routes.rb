@@ -4,11 +4,9 @@ Rails.application.routes.draw do
 
   root to: 'tuxedos#index'
 
-  resources :tuxedos, only: [ :show, :index ]
-
-  resources :users, except: [ :index ] do
-    resources :tuxedos
+  resources :tuxedos do
     resources :bookings
   end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
