@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
+  before_action :set_tuxedo, only: [:new, :create, :show]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -15,8 +15,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.tuxedo = Tuxedo.find(params[:tuxedo_id])
+    @booking.user = current_user
+
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to tuxedo_bookings_path(@tuxedo)
     else
       render :new
     end
@@ -24,18 +27,18 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(bookings_params)
-    redirect_to booking_path(@booking)
+    redirect_to tuxedo_booking_path(@booking)
   end
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to tuxedo_bookings_path
 
   end
 
   def edit
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking)
+      redirect_to tuxedo_booking_path(@booking)
     else
       render :edit
     end
@@ -51,9 +54,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def set_user
-  end
-
   def set_tuxedo
+    @tuxedo = Tuxedo.find(params[:tuxedo_id])
   end
 end
