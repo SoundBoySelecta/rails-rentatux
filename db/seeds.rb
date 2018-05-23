@@ -1,5 +1,9 @@
 require 'faker'
 
+Booking.destroy_all
+Tuxedo.destroy_all
+User.destroy_all
+
 puts "STARTING SEEDING PROCEDURES"
 puts 'Creating 100 fake users...'
 10.times do
@@ -25,7 +29,7 @@ puts 'starting creation of Tuxedos'
     year: (1975..2018).to_a.sample,
     size: ["big", "medium", "small"].sample,
     remote_picture_url: url,
-    user_id: (1..100).to_a.sample,
+    user: User.all.to_a.sample,
   )
   tuxedo.save!
 end
@@ -36,8 +40,8 @@ puts 'starting creation of Bookings'
     status: ["available", "approved", "pending approval", "denied"].sample,
     start_date: Faker::Date.between(500.days.ago, Date.today),
     end_date: Faker::Date.between(500.days.ago, Date.today),
-    user_id: (1..100).to_a.sample,
-    tuxedo_id: (1..300).to_a.sample
+    user: User.all.to_a.sample,
+    tuxedo: Tuxedo.all.to_a.sample
   )
 booking.save!
 end
