@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
-    <link rel="stylesheet" href="main.css">
-
-  </head>
-
   <body>
-    <div class="nav">
-      <div class="container">
-        <ul class="pull-left">
-          <li><a href="https://www.airbnb.com/">airbnb</a></li>
-          <li><a href="https://www.airbnb.com/jobs">Careers</a></li>
-        </ul>
-        <ul class="pull-right">
-          <li><a href="https://www.airbnb.com/signup_login?redirect_params[action]=show&redirect_params[controller]=homepages">Sign Up</a></li>
-          <li><a href="https://www.airbnb.com/login?redirect_params[action]=show&redirect_params[controller]=homepages">Log In</a></li>
-          <li><a href="https://www.airbnb.com/rooms/new">Manage Bookings</a></li>
-        </ul>
-      </div>
-    </div>
-
     <div class="jumbotron">
       <div class="container">
         <h1>Find a Tuxedo.</h1>
@@ -34,54 +9,19 @@
 
     <div class="neighborhood-guides">
         <div class="container">
-            <h2>Rental Guides</h2>
-            <p>We have tuxedos all over the world from major brands. With Rentatux, you'll never again worry about traveling abroad with a rental tuxedo; all you need is a phone and an internet connection.</p>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <%= link_to '' do %>
-                        <%= image_tag 'tb12' %>
-                      <% end %>
-                    </div>
-
-                    <div class="thumbnail">
-                      <%= link_to '' do %>
-                        <%= image_tag 'tux' %>
-                      <% end %>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <%= link_to '' do %>
-                        <%= image_tag 'white' %>
-                      <% end %>
-                     </div>
-
-                    <div class="thumbnail">
-                      <%= link_to '' do %>
-                        <%= image_tag 'gray' %>
-                      <% end %>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <%= link_to '' do %>
-                        <%= image_tag 'blue' %>
-                      <% end %>
-                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <%= link_to '' do %>
-                        <%= image_tag 'purple' %>
-                      <% end %>
-                     </div>
-                </div>
-            </div>
+          <h2>Rental Guides</h2>
+          <p>We have tuxedos all over the world from major brands. With Rentatux, you'll never again worry about traveling abroad with a rental tuxedo; all you need is a phone and an internet connection.</p>
+        <div class="row">
+          <% @tuxedos.each do |tuxedo| %>
+            <div class="col-md-4">
+              <div class="thumbnail">
+                <%= link_to tuxedo_path(tuxedo) do %>
+                  <%= image_tag 'tb12' %>
+                <% end %>
+              </div>
+          <% end %>
         </div>
+      </div>
     </div>
 
     <div class="learn-more">

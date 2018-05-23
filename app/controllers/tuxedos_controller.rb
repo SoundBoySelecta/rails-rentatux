@@ -1,6 +1,7 @@
 class TuxedosController < ApplicationController
-skip_before_action :authenticate_user!, only: :index, :show
-def index
+skip_before_action :authenticate_user!, only: [:index, :show]
+before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
+  def index
     @tuxedos = Tuxedo.all
   end
 
@@ -9,33 +10,31 @@ def index
   end
 
   def show
-    @tuxedo = Tuxedo.find(params[:id])
-    @bookings = @tuxedo.bookings
-    @tuxedo = Tuxedo.new
   end
 
   def create
-    @tuxedo = Tuxedo.new(tux_params)
+    @tuxedo = Tuxedo.new(tuxedo_params)
     @tuxedo.user = current_user
     if @tuxedo.save
-      redirect_to tuxedos_show_url
+      redirect_to tuxedos_path
       # redirect_to cocktail_path(@cocktail)
     else
       render :new
     end
+  end
 
   def destroy
-      @tuxedo = Tuxedo.find(params[:id])
       @tuxedo.destroy
-      redirect_to tuxedos_index_url
-      # redirect_to cocktail_path(@dose.cocktail)
+      redirect_to tuxedos_path
   end
-end
 
   private
 
-  def tux_params
-    # *Strong params*: You need to *whitelist* what can be updated by the user
+  def tuxedo_params
     params.require(:tuxedo).permit(:picture, :condition, :style, :color, :size, :year)
+  end
+
+  def set_tuxedo
+    @tuxedo = Tuxedo.find(params[:id])
   end
 end
