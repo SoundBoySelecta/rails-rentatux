@@ -1,23 +1,23 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
+  <!-- LOGO and CLICK ON LOGO REDIRECTS TO ROOT -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <%= image_tag "rentatux_logo_2.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "View my Tuxedos", "tuxedos_path", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "View my Bookings", "tuxedo_bookings", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "rentatux_logo_2.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -55,16 +55,3 @@
     </div>
   </div>
 </div>
-<div class="nav">
-      <div class="container">
-        <ul class="pull-left">
-          <li><a href="https://www.airbnb.com/">airbnb</a></li>
-          <li><a href="https://www.airbnb.com/jobs">Careers</a></li>
-        </ul>
-        <ul class="pull-right">
-          <li><a href="https://www.airbnb.com/signup_login?redirect_params[action]=show&redirect_params[controller]=homepages">Sign Up</a></li>
-          <li><a href="https://www.airbnb.com/login?redirect_params[action]=show&redirect_params[controller]=homepages">Log In</a></li>
-          <li><a href="https://www.airbnb.com/rooms/new">Manage Bookings</a></li>
-        </ul>
-      </div>
-    </div>

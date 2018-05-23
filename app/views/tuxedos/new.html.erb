@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Add a new tux to your collection</h2>
+  <div>
+
+    <%= simple_form_for(@tuxedo) do |f| %>
+      <%= f.input :color  %>
+      <%= f.input :style %>
+      <%= f.input :condition, collection: ["mint", "almost new", "slightly used", "used", "heavily used"] %>
+      <%= f.input :size, collection:  ["big", "medium", "small"] %>
+      <%= f.input :year, collection: (1900..Date.today.year).to_a %>
+      <%= f.input :picture %>
+      <%= f.input :picture_cache, as: :hidden %>
+      <%= fsubmit %>
+    <% end %>
+    </div>
+</div>
+
+
+
+
+
+
+

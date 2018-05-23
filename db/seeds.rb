@@ -18,6 +18,7 @@ puts '100 users created!'
 puts 'starting creation of Tuxedos'
 300.times do
   tuxedo = Tuxedo.new(
+    secure_url =
     color: Faker::Color.color_name,
     style: Faker::Hipster.words(1)[0],
     condition: ["mint", "almost new", "slightly used", "used", "heavily used"].sample,

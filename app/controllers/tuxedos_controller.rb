@@ -7,6 +7,8 @@ before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
 
   def new
     @tuxedo = Tuxedo.new
+    redirect_to tuxedo_path(@tuxedo)
+
   end
 
   def show
