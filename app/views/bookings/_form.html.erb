@@ -1,7 +1,10 @@
-<%= simple_form_for [@tuxedo, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.button :submit,class: "btn btn-primary" %>
-<% end %>
+<div style="width: 400px">
+  <%= simple_form_for [@tuxedo, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit,class: "btn btn-primary" %>
+  <% end %>
+</div>
+
 
 <%= link_to "Back to home page", tuxedos_path %>

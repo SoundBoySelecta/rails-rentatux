@@ -2,9 +2,8 @@
   <%= booking.status %>
   <%= booking.start_date %>
   <%= booking.end_date %>
-  <%= link_to "Edit", tuxedo_booking_path(booking),
-    method: :edit %>
-  <%= link_to "Delete", tuxedo_booking_path(booking),
+  <%= link_to "Edit", edit_tuxedo_booking_path(@tuxedo, booking) %>
+  <%= link_to "Delete", tuxedo_booking_path(@tuxedo, booking),
     method: :delete,
     data: { confirm: "Are you sure?" } %>
 <% end %>
