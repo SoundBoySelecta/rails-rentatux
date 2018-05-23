@@ -5,9 +5,9 @@
 <%= @tuxedo.color %>
 <%= @tuxedo.size %>
 <%= @tuxedo.year %>
-
+<!--
 <% @tuxedo.bookings.each do |booking| %>
-  <%= image_tag 'url('<%= cl_image_path booking.picture, height: 30, width: 40, crop: :fill %>')">' %>
+  <%= cl_image_tag @tuxedo.picture, height: 300, width: 400, crop: :fill %>
   <%= booking.status %>
   <%= booking.start_date %>
   <%= booking.end_date %>
@@ -15,3 +15,4 @@
 
 
 
+ -->
