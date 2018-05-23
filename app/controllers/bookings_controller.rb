@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to tuxedo_bookings_path(@tuxedo)
+      redirect_to tuxedo_path(@tuxedo)
     else
       render :new
     end
@@ -28,21 +28,23 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(bookings_params)
-    redirect_to tuxedo_booking_path(@booking)
+    flash[:alert] = "You have successfully updated this booking"
+    redirect_to tuxedo_path(@booking)
   end
 
   def destroy
     @booking.destroy
-    redirect_to tuxedo_bookings_path
-
+    redirect_to tuxedo_path
   end
 
   def edit
-    if @booking.update(booking_params)
-      redirect_to tuxedo_booking_path(@booking)
-    else
-      render :edit
-    end
+    # if @booking.update(booking_params)
+    #   flash[:alert] = "You have successfully changed this booking"
+    #   redirect_to tuxedo_path(@booking)
+    # else
+    #   flash[:alert] = "You have successfully changed this booking"
+    #   render :edit
+    # end
   end
 
   private
