@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index, :show
-  before_action :set_tuxedo, only: [:new, :create, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_tuxedo, only: [:new, :create, :show, :edit, :index, :destroy]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
