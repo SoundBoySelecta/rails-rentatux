@@ -1,1 +1,18 @@
+<%= cl_image_tag @tuxedo.picture, height: 300, width: 400, crop: :fill %>
 
+<%= @tuxedo.condition %>
+<%= @tuxedo.style %>
+<%= @tuxedo.color %>
+<%= @tuxedo.size %>
+<%= @tuxedo.year %>
+<!--
+<% @tuxedo.bookings.each do |booking| %>
+  <%= cl_image_tag @tuxedo.picture, height: 300, width: 400, crop: :fill %>
+  <%= booking.status %>
+  <%= booking.start_date %>
+  <%= booking.end_date %>
+<% end %>
+
+
+
+ -->
