@@ -16,7 +16,7 @@
             <div class="col-md-4">
               <div class="thumbnail">
                 <%= link_to tuxedo_path(tuxedo) do %>
-                  <%= image_tag 'tb12' %>
+                  <%= image_tag 'url('<%= cl_image_path @tuxedo.picture %>')">' %>
                 <% end %>
               </div>
           <% end %>

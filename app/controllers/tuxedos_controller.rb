@@ -1,4 +1,5 @@
 class TuxedosController < ApplicationController
+mount_uploader :picture, PhotoUploader
 skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
   def index
