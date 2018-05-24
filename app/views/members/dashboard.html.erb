@@ -1,27 +1,46 @@
-<% @my_tuxedos.each do |tuxedo| %>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <%= link_to tuxedo_path(tuxedo) do %>
-        <div class="tuxedo-card" style="background-image: url('<%= cl_image_path tuxedo.picture %>')">
-        </div>
-      <% end %>
-          <h3>Style: <%= tuxedo.style.capitalize %> </h3>
+<div style= "padding-bottom: 30px">
+  <h2 style= "text-align: center">User Dashboard</h2>
+</div>
+
+  <div style= "padding-left: 30px">
+    <h5>Name: <%= current_user.first_name %><strong><%=" "%><%= current_user.last_name %></strong> </h5>
+    <p>Email: <%= current_user.email %> </p>
     <div>
-    <h3>Condition: <%= tuxedo.condition.capitalize %> </h3>
+    <p>Address: <%= current_user.address %> </p>
     </div>
     <div>
-    <h3>Color: <%= tuxedo.color.capitalize %> </h3>
-    </div>
-    <div>
-    <h3>Size: <%= tuxedo.size.capitalize %> </h3>
-    </div>
-    <div>
-    <h3>Year: <%= tuxedo.year %> </h3>
-    </div>
+    <p>Sign in count: <%= current_user.sign_in_count %> </p>
     </div>
   </div>
-<% end %>
+
+<div>
+  <h3 style= "text-align: center" >My Tuxedos</h3>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @my_tuxedos.each do |tuxedo| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render "tuxedos/card", tuxedo: tuxedo %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+<div style= "padding-left: 30px", style="display: inline; width: 300px;">
+  <div>
+  </div>
+</div>
+
+<h2>Bookings</h2>
 
 <% @my_bookings.each do |booking| %>
-  <p><%= link_to booking.status, booking_path(booking) %></p>
+  <p><%= link_to booking.status, tuxedo_booking_path(booking.tuxedo, booking) %></p>
+<% end %>
+
+<h2>Bookings on my tuxedos</h2>
+
+<% @bookings_on_my_tuxedos.each do |booking| %>
+  <p><%= link_to booking.status, tuxedo_booking_path(booking.tuxedo, booking) %></p>
 <% end %>

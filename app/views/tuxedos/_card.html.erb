@@ -1,0 +1,19 @@
+<%= link_to tuxedo_path(tuxedo) do %>
+  <div class="sm-tuxedo-card" style="background-image: url('<%= cl_image_path tuxedo.picture %>')">
+  </div>
+<% end %>
+<div id="card-text" >
+  <p>Style: <%= tuxedo.style.capitalize %> </p>
+  <div>
+  <p>Condition: <%= tuxedo.condition %> </p>
+  </div>
+  <div>
+  <p>Color: <%= tuxedo.color.capitalize %> </p>
+  </div>
+  <div>
+  <p>Size: <%= tuxedo.size %> </p>
+  </div>
+  <div>
+  <p>Year: <%= tuxedo.year %> </p>
+  </div>
+</div>
