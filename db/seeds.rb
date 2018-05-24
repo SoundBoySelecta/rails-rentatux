@@ -38,7 +38,7 @@ puts 'tuxedos created!'
 puts 'starting creation of Bookings'
 40.times do
   booking = Booking.new(
-    status: ["Available", "Approved", "Pending approval", "Denied"].sample,
+    status: ["Pending", "Approved", "Denied"].sample,
     start_date: Faker::Date.between(500.days.ago, Date.today),
     end_date: Faker::Date.between(500.days.ago, Date.today),
     user: User.all.to_a.sample,
