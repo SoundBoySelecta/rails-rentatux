@@ -1,12 +1,14 @@
-<div style="width: 400px", id="booking_form">
+
+
+<div class="form", style= "padding-top: 30px">
   <%= simple_form_for [@tuxedo, @booking] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
     <%= f.button :submit,class: "btn btn-primary" %>
   <% end %>
 </div>
 
 
 <div class="bottom_links">
-<%= link_to "Back to home page", tuxedo_path(@tuxedo) %>
+<%= link_to "Back to Tuxedo list", tuxedos_path %>
 </div>

@@ -2,7 +2,7 @@ class Tuxedo < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :picture, presence: true
-  validates :condition, presence: true, inclusion: { in: ["mint", "almost new", "slightly used", "used", "heavily used"] }
-  validates :size, presence: true, inclusion: { in: ["big", "medium", "small"] }
+  validates :condition, presence: true, inclusion: { in: ["Mint", "Almost new", "Slightly used", "Used", "Heavily used"] }
+  validates :size, presence: true, inclusion: { in: ["Big", "Medium", "Small"] }
   mount_uploader :picture, PictureUploader
 end
