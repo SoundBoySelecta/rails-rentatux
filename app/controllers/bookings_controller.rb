@@ -28,8 +28,8 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(bookings_params)
-    flash[:alert] = "You have successfully updated this booking"
+    @booking.update(booking_params)
+    flash[:notice] = "You have successfully updated this booking"
     redirect_to tuxedo_path(@booking)
   end
 

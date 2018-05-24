@@ -1,27 +1,64 @@
-<% @my_tuxedos.each do |tuxedo| %>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <%= link_to tuxedo_path(tuxedo) do %>
-        <div class="tuxedo-card" style="background-image: url('<%= cl_image_path tuxedo.picture %>')">
-        </div>
-      <% end %>
-          <h3>Style: <%= tuxedo.style.capitalize %> </h3>
-    <div>
-    <h3>Condition: <%= tuxedo.condition.capitalize %> </h3>
-    </div>
-    <div>
-    <h3>Color: <%= tuxedo.color.capitalize %> </h3>
-    </div>
-    <div>
-    <h3>Size: <%= tuxedo.size.capitalize %> </h3>
-    </div>
-    <div>
-    <h3>Year: <%= tuxedo.year %> </h3>
-    </div>
-    </div>
-  </div>
-<% end %>
+<div style= "padding-bottom: 30px">
+  <h2 style= "text-align: center">User Dashboard</h2>
+</div>
 
-<% @my_bookings.each do |booking| %>
-  <p><%= link_to booking.status, booking_path(booking) %></p>
-<% end %>
+  <div style= "padding-left: 30px">
+    <strong>User: </strong><%= current_user.first_name %><%=" "%><%= current_user.last_name %> <%=" "%><strong><p style="margin-bottom: 0"> </strong><%= current_user.email %>
+    <strong><p></strong><%= current_user.address %>
+  </div>
+
+<div>
+  <h3 style= "text-align: center" >My Tuxedos</h3>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @my_tuxedos.each do |tuxedo| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render "tuxedos/card", tuxedo: tuxedo %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+<div style= "padding-left: 30px", style="display: inline; width: 300px;">
+  <div>
+  </div>
+</div>
+
+<div style= "padding-left: 30px">
+  <h3>My Bookings </h3>
+
+  <% counter = 0 %>
+  <% @my_bookings.each do |booking| %>
+    <% counter += 1 %>
+    <p><%= counter %><%=" "%> - <strong>Status:</strong><%=" "%><%= link_to booking.status, tuxedo_booking_path(booking.tuxedo, booking) %>,
+    <strong>Start date:</strong><%=" "%><%= booking.start_date.strftime("%b %d, %Y") %>,
+    <strong>End date:</strong><%=" "%><%= booking.end_date.strftime("%b %d, %Y") %></p>
+  <% end %>
+
+  <h3>Bookings on my tuxedos</h3>
+  <% counter1 = 0 %>
+
+  <% @bookings_on_my_tuxedos.each do |booking| %>
+    <% counter1 += 1 %>
+    <p><%= counter1 %><%=" "%> - <strong>Status:<%=" "%></strong><%= link_to booking.status, tuxedo_booking_path(booking.tuxedo, booking) %>,
+    <strong>Start date:</strong><%=" "%><%= booking.start_date.strftime("%b %d, %Y") %>,
+    <strong>End date:</strong><%=" "%><%= booking.end_date.strftime("%b %d, %Y") %>,
+    <strong>Booking by:</strong><%=" "%><%= booking.user.first_name %><%=" "%><%= booking.user.last_name %>,
+    <strong>Email:</strong><%=" "%><%= booking.user.email %>
+
+    <%= simple_form_for booking do |f| %>
+      <%= f.input :status, input_html: { value: 'Approved' }, as: :hidden %>
+      <%= f.submit 'Accept' %>
+    <% end %>
+
+    <%= simple_form_for booking do |f| %>
+      <%= f.input :status, input_html: { value: 'Denied' }, as: :hidden %>
+      <%= f.submit 'Reject' %>
+    <% end %></p>
+
+  <% end %>
+
+</div>
