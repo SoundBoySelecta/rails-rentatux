@@ -8,8 +8,6 @@ class CreateTuxedos < ActiveRecord::Migration[5.2]
       t.integer :year
       t.string :picture
 
-      refer
-
       t.timestamps
     end
   end

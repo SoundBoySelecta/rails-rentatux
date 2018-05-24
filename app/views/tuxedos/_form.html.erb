@@ -1,0 +1,18 @@
+<div class="form" style="padding-top: 30px">
+  <%= simple_form_for(tuxedo) do |f| %>
+    <!-- [...] -->
+    <%= f.input :color %>
+    <%= f.input :style %>
+    <%= f.input :condition, collection: ["Mint", "Almost new", "Slightly used", "Used", "Heavily used"] %>
+    <%= f.input :size,collection: ["Big", "Medium", "Small"] %>
+    <%= f.input :year, collection: 2010..2018 %>
+    <%= f.input :picture %>
+    <%= f.input :picture_cache, as: :hidden %>
+    <!-- [...] -->
+    <%= f.button :submit,class: "btn btn-primary" %>
+  <% end %>
+</div>
+<div class="bottom_links" >
+  <h4><%= link_to "Back to Tuxedo List", tuxedos_path %></h4>
+</div>
+
