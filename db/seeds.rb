@@ -25,9 +25,9 @@ puts 'starting creation of Tuxedos'
   tuxedo = Tuxedo.new(
     color: Faker::Color.color_name,
     style: Faker::Hipster.words(1)[0],
-    condition: ["mint", "almost new", "slightly used", "used", "heavily used"].sample,
+    condition: ["Mint", "Almost new", "Slightly used", "Used", "Heavily used"].sample,
     year: (1975..2018).to_a.sample,
-    size: ["big", "medium", "small"].sample,
+    size: ["Big", "Medium", "Small"].sample,
     remote_picture_url: url,
     user: User.all.to_a.sample,
   )
@@ -37,7 +37,7 @@ puts 'tuxedos created!'
 puts 'starting creation of Bookings'
 40.times do
   booking = Booking.new(
-    status: ["available", "approved", "pending approval", "denied"].sample,
+    status: ["Available", "Approved", "Pending approval", "Denied"].sample,
     start_date: Faker::Date.between(500.days.ago, Date.today),
     end_date: Faker::Date.between(500.days.ago, Date.today),
     user: User.all.to_a.sample,
