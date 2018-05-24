@@ -2,7 +2,7 @@ class TuxedosController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
   def index
-    @tuxedos = Tuxedo.all
+    @tuxedos = Tuxedo.all.sort.reverse
   end
 
   def new
