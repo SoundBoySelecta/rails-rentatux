@@ -1,4 +1,5 @@
   <body>
+
     <div class="jumbotron" id="jumbo">
       <div class="container">
         <h2>Rent-A-Tux</h2>
@@ -6,13 +7,11 @@
         <p>Rent a tuxedo from anywhere in the world.</p>
         <%= link_to 'Learn More About Us', '' %>
       </div>
-    </div>
 
-    <div class="neighborhood-guides">
-        <div class="container">
-          <h2>Rental Guides</h2>
-          <p>We have tuxedos all over the world from major brands. With Rentatux, you'll never again worry about traveling abroad with a rental tuxedo; all you need is a phone and an internet connection.</p>
+      <div class="learn-more">
+      <div class=>
         <div class="row">
+
           <% @tuxedos.first(6).each do |tuxedo| %>
             <div class="col-md-4">
               <div class="thumbnail">
@@ -26,13 +25,10 @@
       </div>
     </div>
 
-    <div class="learn-more">
-    <div class="container">
-      <div class="row">
-          <div class="col-md-4">
-          <h3>Find a Tux</h3>
-          <p>Choose from hundreds of brands across 5 continents. Whether you go to a destination wedding or conference abroad, you'll never have to worry about looking your best.</p>
-          <p><a href="https://www.airbnb.com/help/getting-started/how-to-travel">Find the perfect tux for you</a></p>
+            <div class="col-md-4">
+            <h3>Rent your Tux</h3>
+            <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
+            <p><a href="https://www.airbnb.com/help/getting-started/how-to-host">Create booking for your tux</a></p>
             </div>
 
           <div class="col-md-4">
@@ -47,7 +43,7 @@
           <p><a href="https://www.airbnb.com/trust">Learn about trust at Rentatux</a></p>
           </div>
       </div>
+        </div>
     </div>
-  </div>
   </body>
 </html>

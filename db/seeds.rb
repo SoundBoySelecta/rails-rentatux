@@ -23,6 +23,7 @@ puts 'starting creation of Tuxedos'
 30.times do
   url = "https://picsum.photos/200/300/?random"
   tuxedo = Tuxedo.new(
+    secure_url =
     color: Faker::Color.color_name,
     style: Faker::Hipster.words(1)[0],
     condition: ["Mint", "Almost new", "Slightly used", "Used", "Heavily used"].sample,
