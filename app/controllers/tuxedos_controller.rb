@@ -16,8 +16,7 @@ before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
     @tuxedo = Tuxedo.new(tuxedo_params)
     @tuxedo.user = current_user
     if @tuxedo.save
-      redirect_to tuxedos_path
-      # redirect_to cocktail_path(@cocktail)
+      redirect_to tuxedo_path(@tuxedo)
     else
       render :new
     end
@@ -25,7 +24,7 @@ before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
 
   def destroy
       @tuxedo.destroy
-      redirect_to tuxedos_path
+      redirect_to tuxedo_path(@tuxedo)
   end
 
   private

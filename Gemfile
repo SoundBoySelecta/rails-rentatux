@@ -13,6 +13,7 @@ gem 'faker'
 gem 'country_select'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'bootstrap-datepicker-rails'
 
 
 gem 'autoprefixer-rails'
