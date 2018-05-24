@@ -1,0 +1,65 @@
+
+
+<div style= "padding-bottom: 30px">
+  <h1 style= "text-align: center">User Dashboard</h1>
+</div>
+
+<div class="flex-container", style= "display: flex", style="justify-content: space-around">
+
+  <div style= "padding-left: 30px">
+  <%= cl_image_tag @tuxedo.picture, height: 300, width: 250, crop: :fill %>
+  </div>
+
+  <div style= "padding-left: 30px">
+    <h3>Name: <%= @member.name %> </h3>
+    <div>
+    <h3>Email: <%= @member.email %> </h3>
+    </div>
+    <div>
+    <h3>Address: <%= @member.address %> </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @member.tuxedos.each do |tuxedo| %>
+        <div class="thumbnail">
+          <%= link_to tuxedo_path(tuxedo) do %>
+            <div class="tuxedo-card" style="background-image: url('<%= cl_image_path tuxedo.picture %>')">
+            </div>
+          <% end %>
+          <%= tuxedo.style %>
+          <%= tuxedo.year %>
+          <%= tuxedo.condition %>
+          <%= tuxedo.color %>
+          <%= tuxedo.size %>
+
+        </div>
+    <% end %>
+  </div>
+
+   <div class="row">
+    <% @member.bookings.each do |booking| %>
+          <%= booking.status %>
+          <%= booking.start_date %>
+          <%= booking.end_date %>
+        </div>
+    <% end %>
+  </div>
+
+
+</div>
+<div class="bottom_links" >
+  <h4><%= link_to "Add a Tuxedo", new_tuxedo_path %></h4>
+  <h4><%= link_to "Back to Tuxedo List", tuxedos_path %></h4>
+</div>
+<!--
+<% @tuxedo.bookings.each do |booking| %>
+  <%= cl_image_tag @tuxedo.picture, height: 300, width: 400, crop: :fill %>
+  <%= booking.status %>
+  <%= booking.start_date %>
+  <%= booking.end_date %>
+<% end %>
+
+
+
+ -->

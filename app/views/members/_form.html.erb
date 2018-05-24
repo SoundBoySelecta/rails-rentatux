@@ -1,0 +1,14 @@
+
+<div class="form", style= "padding-top: 30px">
+  <%= simple_form_for [@tuxedo, @booking, @member] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :address %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+<div class="bottom_links">
+<%= link_to "Back to User page", user_path(@user) %>
+</div>
