@@ -6,7 +6,7 @@
 <div class="flex-container", style= "display: flex", style="justify-content: space-around">
 
   <div style= "padding-left: 30px">
-  <%= cl_image_tag @tuxedo.picture, height: 300, width: 250, crop: :fill %>
+  <%= cl_image_tag @tuxedo.picture, height: "400" %>
   </div>
 
   <div style= "padding-left: 30px">
@@ -24,22 +24,19 @@
     <h3>Year: <%= @tuxedo.year %> </h3>
     </div>
   </div>
-
-
 </div>
-<div class="bottom_links" >
-  <h3><%= link_to "Book this Tuxedo", new_tuxedo_booking_path(@tuxedo) %></h3>
-  <h4><%= link_to "Rent your Tuxedo", new_tuxedo_path %></h4>
-  <h4><%= link_to "Back to Tuxedo List", tuxedos_path %></h4>
-</div>
-<!--
-<% @tuxedo.bookings.each do |booking| %>
-  <%= cl_image_tag @tuxedo.picture, height: 300, width: 400, crop: :fill %>
-  <%= booking.status %>
-  <%= booking.start_date %>
-  <%= booking.end_date %>
-<% end %>
+
+  <div class="bottom_links" >
+      <span>
+        <%= link_to "Book this Tuxedo", new_tuxedo_booking_path(@tuxedo), class: "btn btn-primary" %>
+      </span>
+      <span>
+        <%= link_to "Rent your Tuxedo", new_tuxedo_path, class: "btn btn-primary" %>
+      </span>
+      <span>
+        <%= link_to "Back to Tuxedo List", tuxedos_path, class: "btn btn-primary" %>
+      </span>
+
+  </div>
 
 
-
- -->
