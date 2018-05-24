@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
-  resources :members, only: [:edit, :show, :update, :destroy]
 
+  get "dashboard", to: "members#dashboard", as: "dashboard"
+  resources :members, only: [:edit, :show, :update, :destroy]
 end
