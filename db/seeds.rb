@@ -1,5 +1,10 @@
 require 'faker'
 
+def get_path(image)
+  File.new(Rails.root.join("app/assets/images/tux_pictures/#{image}"))
+end
+
+
 Booking.destroy_all
 Tuxedo.destroy_all
 User.destroy_all
@@ -18,18 +23,23 @@ puts 'Creating 100 fake users...'
   )
   user.save!
 end
+
+
+
 puts '100 users created!'
 puts 'starting creation of Tuxedos'
 30.times do
-  url = "https://picsum.photos/200/300/?random"
+  urls = ["tux001.jpg", "tux002.jpg", "tux003.jpg", "tux004.jpeg", "tux005.jpeg",
+    "tux006.jpeg", "tux007.jpg", "tux008.jpg", "tux009.jpeg", "tux010.jpeg",
+    "tux011.jpeg", "tux012.jpg", "tux013.jpg", "tux014.jpg"]
+
   tuxedo = Tuxedo.new(
-    secure_url =
     color: Faker::Color.color_name,
     style: Faker::Hipster.words(1)[0],
     condition: ["Mint", "Almost new", "Slightly used", "Used", "Heavily used"].sample,
     year: (1975..2018).to_a.sample,
     size: ["Big", "Medium", "Small"].sample,
-    remote_picture_url: url,
+    picture: get_path(urls.sample),
     user: User.all.to_a.sample,
   )
   tuxedo.save!
@@ -51,7 +61,4 @@ puts "SEED FINISHED"
 
 puts 'Finished!'
 
-url = "http://static.giantbomb.com/uploads/original/9/99864/2419866-nes_console_set.png"
-article = Article.new(title: 'NES', body: "A great console")
-article.remote_photo_url = url
-article.save
+

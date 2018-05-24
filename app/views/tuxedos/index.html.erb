@@ -1,5 +1,4 @@
   <body>
-
     <div class="jumbotron" id="jumbo">
       <div class="container">
         <h2>Rent-A-Tux</h2>
@@ -9,41 +8,42 @@
       </div>
 
       <div class="learn-more">
-      <div class=>
-        <div class="row">
+        <div class=>
+          <div class="row">
 
-          <% @tuxedos.first(6).each do |tuxedo| %>
-            <div class="col-md-4">
-              <div class="thumbnail">
-                <%= link_to tuxedo_path(tuxedo) do %>
-                  <div class="tuxedo-card" style="background-image: url('<%= cl_image_path tuxedo.picture %>')">
-                  </div>
-                <% end %>
+            <% @tuxedos.first(6).each do |tuxedo| %>
+              <div class="col-md-4">
+                <div class="thumbnail">
+                  <%= link_to tuxedo_path(tuxedo) do %>
+                    <div class="tuxedo-card" style="background-image: url('<%= cl_image_path tuxedo.picture %>')">
+                    </div>
+                  <% end %>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h3>Rent your Tux</h3>
+        <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
+        <p></p>
+      </div>
+
+      <div class="col-md-4">
+        <h3><i class="fas fa-hand-point-right "></i><%= link_to "Rent your Tuxedo", new_tuxedo_path %><i class=" fas fa-hand-point-left"></i></h3>
+        <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
+        <p><%=link_to "Create booking for your tux", tuxedos_path %></p>
+      </div>
+
+      <div class="col-md-4">
+        <h3>Trust and Safety</h3>
+        <p>
+        From Verified ID to our worldwide customer support team, we've got your back.
+        </p>
       </div>
     </div>
-
-            <div class="col-md-4">
-            <h3>Rent your Tux</h3>
-            <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
-            <p><a href="https://www.airbnb.com/help/getting-started/how-to-host">Create booking for your tux</a></p>
-            </div>
-
-          <div class="col-md-4">
-          <h3><i class="fas fa-hand-point-right "></i><%= link_to "Rent your Tuxedo", new_tuxedo_path %><i class=" fas fa-hand-point-left"></i></h3>
-          <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
-          <p><a href="https://www.airbnb.com/help/getting-started/how-to-host">Create booking for your tux</a></p>
-          </div>
-
-          <div class="col-md-4">
-          <h3>Trust and Safety</h3>
-          <p>From Verified ID to our worldwide customer support team, we've got your back.</p>
-          <p><a href="https://www.airbnb.com/trust">Learn about trust at Rentatux</a></p>
-          </div>
-      </div>
-        </div>
+  </div>
     </div>
   </body>
 </html>
