@@ -23,15 +23,16 @@
       </div>
 
       <div class="col-md-4">
-        <h3>Rent your Tux</h3>
+        <h3>Find a Tuxedo</h3>
         <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
-        <p></p>
+        <p><%=link_to "Find tux", tuxedos_path %>
+        </p>
       </div>
 
       <div class="col-md-4">
-        <h3><i class="fas fa-hand-point-right "></i><%= link_to "Rent your Tuxedo", new_tuxedo_path %><i class=" fas fa-hand-point-left"></i></h3>
+        <h3><i class="fas fa-hand-point-right "></i><%= link_to "Book your Tuxedo", new_tuxedo_path %><i class=" fas fa-hand-point-left"></i></h3>
         <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
-        <p><%=link_to "Create booking for your tux", tuxedos_path %></p>
+        <p><%=link_to "Book Tux", tuxedos_path %></p>
       </div>
 
       <div class="col-md-4">

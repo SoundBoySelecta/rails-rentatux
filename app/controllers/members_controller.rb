@@ -1,12 +1,10 @@
 class MembersController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
   def dashboard
     @my_tuxedos = current_user.tuxedos
     @my_bookings = current_user.bookings
-    # @bookings_on_my_tuxedos = current_user.bookings_on_my_tuxedos
+    @bookings_on_my_tuxedos = current_user.bookings_on_my_tuxedos
   end
-
-  # has_many :bookings
-  # has_many :users
 
   # def show
   #   @member = Member.new
