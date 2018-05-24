@@ -18,8 +18,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.tuxedo = Tuxedo.find(params[:tuxedo_id])
     @booking.user = current_user
+    @booking.status = "Pending"
 
-    if @booking.save
+    if @booking.save!
       redirect_to tuxedo_path(@tuxedo)
     else
       render :new
