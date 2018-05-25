@@ -43,21 +43,24 @@
 
   <% @bookings_on_my_tuxedos.each do |booking| %>
     <% counter1 += 1 %>
-    <p><%= counter1 %><%=" "%> - <strong>Status:<%=" "%></strong><%= link_to booking.status, tuxedo_booking_path(booking.tuxedo, booking) %>,
+    <p><%= counter1 %><%=" "%> - <strong>Status:<%=" "%></strong><%= booking.status %>,
     <strong>Start date:</strong><%=" "%><%= booking.start_date.strftime("%b %d, %Y") %>,
     <strong>End date:</strong><%=" "%><%= booking.end_date.strftime("%b %d, %Y") %>,
     <strong>Booking by:</strong><%=" "%><%= booking.user.first_name %><%=" "%><%= booking.user.last_name %>,
     <strong>Email:</strong><%=" "%><%= booking.user.email %>
 
-    <%= simple_form_for booking do |f| %>
-      <%= f.input :status, input_html: { value: 'Approved' }, as: :hidden %>
-      <%= f.submit 'Accept' %>
-    <% end %>
+    <% if booking.status == 'Pending'%>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, input_html: { value: 'Approved' }, as: :hidden %>
+        <%= f.submit 'Accept' %>
+      <% end %>
 
-    <%= simple_form_for booking do |f| %>
-      <%= f.input :status, input_html: { value: 'Denied' }, as: :hidden %>
-      <%= f.submit 'Reject' %>
-    <% end %></p>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, input_html: { value: 'Denied' }, as: :hidden %>
+        <%= f.submit 'Reject' %>
+      <% end %>
+    <% end %>
+    </p>
 
   <% end %>
 
