@@ -11,7 +11,7 @@
           <div class="row">
             <% @tuxedos.first(6).each do |tuxedo| %>
               <div class="col-md-4">
-                <div class="thumbnail">
+                <div class="thumbnail", id="thumb">
                   <%= link_to tuxedo_path(tuxedo) do %>
                     <div class="tuxedo-card" style="background-image: url('<%= cl_image_path tuxedo.picture %>')">
                     </div>
