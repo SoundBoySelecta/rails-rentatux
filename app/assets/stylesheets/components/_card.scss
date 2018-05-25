@@ -30,7 +30,8 @@
 }
 
 .card {
-  height: 175px;
+  height: 400px;
+  width: 280px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -79,4 +80,10 @@
   color: white;
   padding-top: 75px;
   text-align: center;
+}
+
+.card-button {
+  position: absolute;
+  top: 270px;
+  left: 85px;
 }
