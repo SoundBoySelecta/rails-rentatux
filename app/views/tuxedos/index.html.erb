@@ -1,8 +1,8 @@
   <body>
     <div id="landing" style="padding-bottom: 30px">
       <div class="container jumbotron" id="jumbo">
-        <h2>Rent-A-Tux</h2>
-        <h1>Find a Tuxedo</h1>
+        <h2></h2>
+        <h1>Rent-A-Tux</h1>
         <p>Rent a tuxedo anywhere in the world</p>
       </div>
 <!-- TUXEDO CARD -->
@@ -27,13 +27,13 @@
     <div class="container jumbotron" id="jumbo-bottom">
           <div class="col-md-4">
             <h3>Find a Tuxedo</h3>
-            <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
-            <p><%=link_to "Find tux", tuxedos_path %></p>
+            <p>Need a great-looking tuxedo in a hurry? With Rent-A-Tux you can book a Tuxedo anywhere, anytime. Have a look at our large collection of available outfits. </p>
+            <p><%=link_to "Find Tux", tuxedos_path %></p>
           </div>
 
           <div class="col-md-4">
-            <h3><i class="fas fa-hand-point-right "></i><%= link_to "Book your Tuxedo", new_tuxedo_path %><i class=" fas fa-hand-point-left"></i></h3>
-            <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused space could pay your bills or fund your next vacation.</p>
+            <h3><%= link_to "Rent Your Tuxedo", new_tuxedo_path %></h3>
+            <p>Have a tuxedo you rarely wear? It'd be a shame to let it lay to waste in the back of your closet. Renting out your unused garment could pay your bills or fund your next vacation.</p>
             <p><%=link_to "Book Tux", tuxedos_path %></p>
           </div>
 
