@@ -28,7 +28,7 @@
 </div>
 
 <div style= "padding-left: 30px">
-  <h3>My Bookings </h3>
+  <h3 style= "text-align: center" >My Bookings</h3>
 
   <% counter = 0 %>
   <% @my_bookings.each do |booking| %>
@@ -38,7 +38,7 @@
     <strong>End date:</strong><%=" "%><%= booking.end_date.strftime("%b %d, %Y") %></p>
   <% end %>
 
-  <h3>Bookings on my tuxedos</h3>
+  <h3 style= "text-align: center" >My Tuxedos</h3>
   <% counter1 = 0 %>
 
   <% @bookings_on_my_tuxedos.each do |booking| %>
