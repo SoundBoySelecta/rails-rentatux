@@ -1,6 +1,7 @@
 class TuxedosController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
+
   def index
     @tuxedos = Tuxedo.all.sort.reverse
   end
@@ -10,6 +11,9 @@ before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+  end
+
+  def edit
   end
 
   def create
@@ -22,9 +26,15 @@ before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def update
+    @tuxedo = Tuxedo.find(params[:id])
+    @tuxedo.update(tuxedo_params)
+    redirect_to tuxedo_path(@tuxedo)
+  end
+
   def destroy
       @tuxedo.destroy
-      redirect_to tuxedo_path(@tuxedo)
+      redirect_to tuxedos_path
   end
 
   private

@@ -23,6 +23,12 @@
     <div>
     <h3>Year: <%= @tuxedo.year %> </h3>
     </div>
+    <div>
+      <p><%=link_to "Edit Tux", edit_tuxedo_path(@tuxedo) %></p>
+    </div>
+    <div>
+      <p><%=link_to "Delete Tux", tuxedo_path(@tuxedo), method: :delete %></p>
+    </div>
   </div>
 </div>
 
