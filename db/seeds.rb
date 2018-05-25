@@ -29,10 +29,11 @@ end
 
 puts '2 users created!'
 puts 'starting creation of Tuxedos'
+posn = 0
 8.times do
-  urls = ["tux001.jpg", "tux002.jpg", "tux003.jpg", "tux004.jpeg", "tux005.jpg",
-    "tux006.jpeg", "tux007.jpg", "tux008.jpg", "tux009.jpeg", "tux010.jpeg",
-    "tux011.jpg", "tux012.jpg", "tux013.jpeg", "tux014.jpg"]
+  urls = ["tux001.jpg", "tux002.jpg", "tux003.jpg", "tux005.jpg",
+    "tux006.jpeg", "tux007.jpg", "tux008.jpg",
+    "tux012.jpg", "tux014.jpg"]
 
   tuxedo = Tuxedo.new(
     color: Faker::Color.color_name,
@@ -40,10 +41,11 @@ puts 'starting creation of Tuxedos'
     condition: ["Mint", "Almost new", "Slightly used", "Used", "Heavily used"].sample,
     year: (1975..2018).to_a.sample,
     size: ["Big", "Medium", "Small"].sample,
-    picture: get_path(urls.sample),
+    picture: get_path(urls[("#{posn}").to_i]),
     user: User.all.sample,
     price: (5..57).to_a.sample,
   )
+  posn += 1
   tuxedo.save!
 end
 puts 'tuxedos created!'
