@@ -30,6 +30,7 @@ end
 puts '2 users created!'
 puts 'starting creation of Tuxedos'
 posn = 0
+user = 0
 8.times do
   urls = ["tux001.jpg", "tux002.jpg", "tux003.jpg", "tux005.jpg",
     "tux006.jpeg", "tux007.jpg", "tux008.jpg",
@@ -42,10 +43,11 @@ posn = 0
     year: (1975..2018).to_a.sample,
     size: ["Big", "Medium", "Small"].sample,
     picture: get_path(urls[("#{posn}").to_i]),
-    user: User.all.sample,
+    user: User.all[("#{user}").to_i],
     price: (5..57).to_a.sample,
   )
   posn += 1
+  user += 1
   tuxedo.save!
 end
 puts 'tuxedos created!'
