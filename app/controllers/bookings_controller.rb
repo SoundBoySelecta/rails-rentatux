@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
   def update
     @booking.update(booking_params)
     flash[:notice] = "You have successfully updated this booking"
-    redirect_to tuxedo_path(@booking)
+    redirect_to dashboard_path
   end
 
   def destroy
