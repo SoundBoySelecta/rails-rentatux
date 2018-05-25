@@ -23,26 +23,40 @@
     <div>
     <h3>Year: <%= @tuxedo.year %> </h3>
     </div>
+    <% if @tuxedo.user == current_user %>
     <div>
-      <p><%=link_to "Edit Tux", edit_tuxedo_path(@tuxedo) %></p>
+        <p><%=link_to "Edit Tux", edit_tuxedo_path(@tuxedo) %></p>
     </div>
     <div>
-      <p><%=link_to "Delete Tux", tuxedo_path(@tuxedo), method: :delete %></p>
+        <p><%=link_to "Delete Tux", tuxedo_path(@tuxedo), method: :delete %></p>
+    <% end %>
     </div>
   </div>
 </div>
 
-  <div class="bottom_links" >
-      <span>
-        <%= link_to "Book this Tuxedo", new_tuxedo_booking_path(@tuxedo), class: "btn btn-primary" %>
-      </span>
-      <span>
-        <%= link_to "Rent your Tuxedo", new_tuxedo_path, class: "btn btn-primary" %>
-      </span>
-      <span>
-        <%= link_to "Back to Tuxedo List", tuxedos_path, class: "btn btn-primary" %>
-      </span>
-
-  </div>
+<div>
+  <% if @tuxedo.user == current_user %>
+    <div class="bottom_links" >
+        <span>
+          <%= link_to "Add another Tuxedo", new_tuxedo_path, class: "btn btn-primary" %>
+        </span>
+        <span>
+          <%= link_to "Back to Tuxedo List", tuxedos_path, class: "btn btn-primary" %>
+        </span>
+    </div>
+    <% else %>
+     <div class="bottom_links" >
+        <span>
+          <%= link_to "Book this Tuxedo", new_tuxedo_booking_path(@tuxedo), class: "btn btn-primary" %>
+        </span>
+        <span>
+          <%= link_to "Rent your Tuxedo", new_tuxedo_path, class: "btn btn-primary" %>
+        </span>
+        <span>
+          <%= link_to "Back to Tuxedo List", tuxedos_path, class: "btn btn-primary" %>
+        </span>
+    </div>
+  <% end %>
+</div>
 
 

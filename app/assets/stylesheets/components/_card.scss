@@ -3,9 +3,22 @@
   height: 400px;
   background-size: cover;
 
+
   &:hover {
     opacity: 0.8;
   }
+
+  background-color: rgba(0,0,0,0);
+  padding-left: 0px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 20px rgba(100,100,100, 0.8);
+  border: 3px solid rgba(250,250,250,0.1);
+  opacity: 0.9;
+}
+
+.tuxedo-card:hover {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .sm-thumbnail {
@@ -86,4 +99,9 @@
   position: absolute;
   top: 270px;
   left: 85px;
+
+#thumb {
+  border-width: 0px;
+  background-color: rgba(1,1,1,0)
+
 }

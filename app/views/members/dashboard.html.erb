@@ -28,7 +28,7 @@
 </div>
 
 <div style= "padding-left: 30px">
-  <h3 style= "text-align: center" >My Bookings</h3>
+  <h3 style= "text-align: center" >Bookings Received</h3>
 
   <% counter = 0 %>
   <% @my_bookings.each do |booking| %>
@@ -38,7 +38,7 @@
     <strong>End date:</strong><%=" "%><%= booking.end_date.strftime("%b %d, %Y") %></p>
   <% end %>
 
-  <h3 style= "text-align: center" >My Tuxedos</h3>
+  <h3 style= "text-align: center" >Booking Made</h3>
   <% counter1 = 0 %>
 
   <% @bookings_on_my_tuxedos.each do |booking| %>
@@ -49,15 +49,17 @@
     <strong>Booking by:</strong><%=" "%><%= booking.user.first_name %><%=" "%><%= booking.user.last_name %>,
     <strong>Email:</strong><%=" "%><%= booking.user.email %>
 
-    <%= simple_form_for booking do |f| %>
-      <%= f.input :status, input_html: { value: 'Approved' }, as: :hidden %>
-      <%= f.submit 'Accept' %>
-    <% end %>
+    <div class="">
+      <%= simple_form_for booking, html: { style: "display: inline-block;" } do |f| %>
+        <%= f.input :status, input_html: { value: 'Approved' }, as: :hidden %>
+        <%= f.submit 'Accept', class: "btn btn-success" %>
+      <% end %>
 
-    <%= simple_form_for booking do |f| %>
-      <%= f.input :status, input_html: { value: 'Denied' }, as: :hidden %>
-      <%= f.submit 'Reject' %>
-    <% end %></p>
+      <%= simple_form_for booking, html: { style: "display: inline-block;" } do |f| %>
+        <%= f.input :status, input_html: { value: 'Denied' }, as: :hidden %>
+        <%= f.submit 'Reject', class: "btn btn-danger" %>
+      <% end %>
+    </div>
 
   <% end %>
 
