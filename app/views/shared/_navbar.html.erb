@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- LOGO and CLICK ON LOGO REDIRECTS TO ROOT -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-  <%= image_tag "icons/rentatux_logo_3.png", height: 50 %>
+  <%= image_tag "icons/rentatux_logo_3", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -14,7 +14,7 @@
     <%= link_to "View Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%= image_tag "icons/bowtie.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag "icons/bowtie", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to dashboard_path do %>
