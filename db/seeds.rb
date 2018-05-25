@@ -27,9 +27,9 @@ end
 puts '100 users created!'
 puts 'starting creation of Tuxedos'
 30.times do
-  urls = ["tux001.jpg", "tux002.jpg", "tux003.jpg", "tux004.jpeg", "tux005.jpeg",
+  urls = ["tux001.jpg", "tux002.jpg", "tux003.jpg", "tux004.jpeg", "tux005.jpg",
     "tux006.jpeg", "tux007.jpg", "tux008.jpg", "tux009.jpeg", "tux010.jpeg",
-    "tux011.jpeg", "tux012.jpg", "tux013.jpg", "tux014.jpg"]
+    "tux011.jpeg", "tux012.jpg", "tux013.jpeg", "tux014.jpg"]
 
   tuxedo = Tuxedo.new(
     color: Faker::Color.color_name,
