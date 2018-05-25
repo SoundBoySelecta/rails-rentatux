@@ -5,5 +5,6 @@ class Tuxedo < ApplicationRecord
   validates :picture, presence: true
   validates :condition, presence: true, inclusion: { in: ["Mint", "Almost new", "Slightly used", "Used", "Heavily used"] }
   validates :size, presence: true, inclusion: { in: ["Big", "Medium", "Small"] }
+  validates :price, numericality: true, presence: true
   mount_uploader :picture, PictureUploader
 end

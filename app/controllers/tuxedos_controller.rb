@@ -30,7 +30,7 @@ before_action :set_tuxedo, only: [:show, :edit, :update, :destroy]
   private
 
   def tuxedo_params
-    params.require(:tuxedo).permit(:picture, :condition, :style, :color, :size, :year)
+    params.require(:tuxedo).permit(:picture, :condition, :style, :color, :size, :year, :price)
   end
 
   def set_tuxedo

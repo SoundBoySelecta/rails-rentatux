@@ -4,27 +4,25 @@ def get_path(image)
   File.new(Rails.root.join("app/assets/images/tux_pictures/#{image}"))
 end
 
-
 Booking.destroy_all
 Tuxedo.destroy_all
 User.destroy_all
 
 puts "STARTING SEEDING PROCEDURES"
 puts 'Creating 100 fake users...'
+
 10.times do
   user = User.new(
     email: Faker::Internet.email,
-    password: "test123",
+    password: ["Password234", "Password000", "Password666", "Password111", "Passweird12345"].sample,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     rating:  (0..5).to_a.sample,
-    city: Faker::Address.city,
-    country: Faker::Address.country
+    address: "#{Faker::Address.street_address},#{Faker::Address.street_name+Faker::Address.city},#{Faker::Address.postcode}"
+
   )
   user.save!
 end
-
-
 
 puts '100 users created!'
 puts 'starting creation of Tuxedos'
@@ -41,6 +39,7 @@ puts 'starting creation of Tuxedos'
     size: ["Big", "Medium", "Small"].sample,
     picture: get_path(urls.sample),
     user: User.all.to_a.sample,
+    price: (5..57).to_a.sample,
   )
   tuxedo.save!
 end
@@ -57,8 +56,7 @@ puts 'starting creation of Bookings'
 booking.save!
 end
 puts 'bookings created!'
-puts "SEED FINISHED"
+puts "SEEDS FINISHED"
 
-puts 'Finished!'
 
 
