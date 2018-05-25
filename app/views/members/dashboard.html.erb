@@ -33,7 +33,7 @@
   <% counter = 0 %>
   <% @my_bookings.each do |booking| %>
     <% counter += 1 %>
-    <p><%= counter %><%=" "%> - <strong>Status:</strong><%=" "%><%= link_to booking.status, tuxedo_booking_path(booking.tuxedo, booking) %>,
+    <p><%= counter %><%=" "%> - <strong>Status:</strong><%=" "%><%= booking.status %>,
     <strong>Start date:</strong><%=" "%><%= booking.start_date.strftime("%b %d, %Y") %>,
     <strong>End date:</strong><%=" "%><%= booking.end_date.strftime("%b %d, %Y") %></p>
   <% end %>

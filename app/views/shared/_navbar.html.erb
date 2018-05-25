@@ -10,9 +10,8 @@
     <% if user_signed_in? %>
     <!-- Links when logged in -->
     <!-- Avatar with dropdown menu -->
-    <%= link_to "View my Tuxedos", tuxedos_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "View Tuxedos", tuxedos_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "View Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <%= image_tag "icons/bowtie.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
