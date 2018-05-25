@@ -9,9 +9,12 @@ Tuxedo.destroy_all
 User.destroy_all
 
 puts "STARTING SEEDING PROCEDURES"
-puts 'Creating 100 fake users...'
+puts 'Creating 2 fake users...'
 
-10.times do
+User.create(email: "s21385@hotmail.com", password: "password123", first_name: "Francis", last_name: "Poitras",
+address: "34 ave Joncas, Montmagny, Quebec" )
+
+1.times do
   user = User.new(
     email: Faker::Internet.email,
     password: ["Password234", "Password000", "Password666", "Password111", "Passweird12345"].sample,
@@ -24,12 +27,12 @@ puts 'Creating 100 fake users...'
   user.save!
 end
 
-puts '100 users created!'
+puts '2 users created!'
 puts 'starting creation of Tuxedos'
-30.times do
+8.times do
   urls = ["tux001.jpg", "tux002.jpg", "tux003.jpg", "tux004.jpeg", "tux005.jpg",
     "tux006.jpeg", "tux007.jpg", "tux008.jpg", "tux009.jpeg", "tux010.jpeg",
-    "tux011.jpeg", "tux012.jpg", "tux013.jpeg", "tux014.jpg"]
+    "tux011.jpg", "tux012.jpg", "tux013.jpeg", "tux014.jpg"]
 
   tuxedo = Tuxedo.new(
     color: Faker::Color.color_name,
@@ -38,20 +41,20 @@ puts 'starting creation of Tuxedos'
     year: (1975..2018).to_a.sample,
     size: ["Big", "Medium", "Small"].sample,
     picture: get_path(urls.sample),
-    user: User.all.to_a.sample,
+    user: User.all.sample,
     price: (5..57).to_a.sample,
   )
   tuxedo.save!
 end
 puts 'tuxedos created!'
 puts 'starting creation of Bookings'
-40.times do
+7.times do
   booking = Booking.new(
     status: ["Pending", "Approved", "Denied"].sample,
     start_date: Faker::Date.between(500.days.ago, Date.today),
     end_date: Faker::Date.between(500.days.ago, Date.today),
-    user: User.all.to_a.sample,
-    tuxedo: Tuxedo.all.to_a.sample
+    user: User.all.sample,
+    tuxedo: Tuxedo.all.sample
   )
 booking.save!
 end
