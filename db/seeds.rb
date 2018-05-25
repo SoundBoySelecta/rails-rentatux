@@ -47,7 +47,11 @@ user = 0
     price: (5..57).to_a.sample,
   )
   posn += 1
-  user += 1
+  if user == 0
+    user += 1
+  else
+    user = 0
+  end
   tuxedo.save!
 end
 puts 'tuxedos created!'
